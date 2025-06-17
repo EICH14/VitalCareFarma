@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar contraseña</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="recuperar">
+
+<!-- Encabezado único -->
+<header id="site-header">
+  <div class="header-content">
+    <img src="vital.ico" alt="Logo Vital Care" class="logo">
+    <a href="index.html" class="logo-link">
+    <h1>Vital Care</h1>
+    </a>
+    <div class="contact-info">
+      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    </div>
+  </div>
+</header>
+
+<!-- ... aquí va el contenido único de cada página ... -->
+
+  <!-- Contenedor principal -->
+  <div class="container">
+
+    <!-- main: contenido principal de la página -->
+    <main>
+      <h2>Recuperar contraseña</h2>
+
+      <!-- Formulario para enviar email registrado -->
+      <form id="recuperarForm" aria-label="Formulario para enviar email de recuperación">
+        <label for="recuperarEmail">Email registrado</label>
+        <input type="email" id="recuperarEmail" name="recuperarEmail" required />
+        <button type="submit">Enviar código</button>
+      </form>
+
+      <!-- Formulario para cambiar la contraseña, oculto inicialmente -->
+      <form id="cambiarForm" style="display:none;" aria-label="Formulario para cambiar contraseña">
+        <label for="codigo">Código recibido</label>
+        <input type="text" id="codigo" name="codigo" required />
+
+        <label for="newPassword">Nueva contraseña</label>
+        <input type="password" id="newPassword" name="newPassword" required />
+
+        <button type="submit">Cambiar contraseña</button>
+      </form>
+
+      <!-- Mensajes de error o éxito -->
+      <div class="msg" id="recuperarMsg" aria-live="polite"></div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+
+<!-- Footer único -->
+<footer id="site-footer">
+  <div class="footer-content">
+    <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    <p>Políticas del Hospital</p>
+    <div class="social">
+      <a href="#">WhatsApp</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

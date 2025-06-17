@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="login">
+
+<!-- Encabezado único -->
+<header id="site-header">
+  <div class="header-content">
+    <img src="vital.ico" alt="Logo Vital Care" class="logo">
+    <h1>Vital Care</h1>
+    <div class="contact-info">
+      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    </div>
+  </div>
+</header>
+
+<!-- ... aquí va el contenido único de cada página ... -->
+
+  <!-- Contenedor principal -->
+  <div class="container">
+
+    <!-- main: contenido principal de la página -->
+    <main>
+      <h2>Login</h2>
+      <p>¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+
+      <!-- form: formulario para iniciar sesión -->
+      <form id="loginForm" aria-label="Formulario de inicio de sesión">
+        <label for="cedula">Cédula</label>
+        <input type="text" id="cedula" name="cedula" required />
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Entrar</button>
+
+        <p><a href="recuperar.html">¿Olvidaste tu contraseña?</a></p>
+
+        <!-- Mensaje de error o información -->
+        <div class="msg" id="loginMsg" aria-live="polite"></div>
+      </form>
+    </main>
+
+  </div>
+  <script src="script.js"></script>
+
+
+<!-- Footer único -->
+<footer id="site-footer">
+  <div class="footer-content">
+    <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    <p>Políticas del Hospital</p>
+    <div class="social">
+      <a href="#">WhatsApp</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

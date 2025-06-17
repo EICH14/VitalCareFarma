@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hacer una Cita</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="hacer-cita">
+
+<!-- Encabezado único -->
+<header id="site-header">
+  <div class="header-content">
+    <img src="vital.ico" alt="Logo Vital Care" class="logo">
+    <a href="home.html" class="logo-link">
+    <h1>Vital Care</h1>
+    </a>
+    <div class="contact-info">
+      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    </div>
+  </div>
+</header>
+
+<!-- ... aquí va el contenido único de cada página ... -->
+
+  <!-- Contenedor principal para centrar y dar márgenes -->
+  <div class="container">
+
+    <!-- main: contenido principal -->
+    <main>
+      <h2>Reservar Cita</h2>
+
+      <!-- Formulario para reservar cita -->
+      <form id="formCita" aria-label="Formulario para reservar cita médica">
+        <label for="especialidad">Especialidad</label>
+        <select id="especialidad" name="especialidad" required>
+          <option value="">Seleccione</option>
+          <option value="Dermatología">Dermatología</option>
+          <option value="Estimulación Temprana">Estimulación Temprana</option>
+          <option value="Gineo-Obstetricia">Gineo-Obstetricia</option>
+          <option value="Medicina General">Medicina General</option>
+          <option value="Medicina Interna">Medicina Interna</option>
+          <option value="Nutrición">Nutrición</option>
+          <option value="Optometría">Optometría</option>
+          <option value="Pediatría">Pediatría</option>
+          <option value="Psiquiatría">Psiquiatría</option>
+        </select>
+
+        <label for="medico">Médico</label>
+        <select id="medico" name="medico" required>
+          <option value="">Seleccione</option>
+        </select>
+
+        <label for="horario">Horario</label>
+        <select id="horario" name="horario" required>
+          <option value="">Seleccione</option>
+          <option value="Cualquiera">Cualquiera</option>
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+
+        <label for="tipo">Tipo de cita</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione</option>
+          <option value="Nueva">Nueva</option>
+          <option value="Control">Control</option>
+        </select>
+
+        <button type="submit">Agendar</button>
+
+        <!-- Div para mostrar mensajes al usuario -->
+        <div id="msgCita" aria-live="polite"></div>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    // Lista de médicos por especialidad para llenar el select dinámicamente
+    const medicosPorEspecialidad = {
+      "Dermatología": ["Dra. Gómez", "Dr. Ruiz", "Dra. Pérez", "Dr. Mendoza", "Dr. Ortega"],
+      "Estimulación Temprana": ["Lic. Mora", "Lic. Villalba", "Lic. Castillo", "Lic. Delgado", "Lic. Ramos"],
+      "Gineo-Obstetricia": ["Dra. Herrera", "Dr. Velásquez", "Dra. Ríos", "Dra. Cáceres", "Dr. López"],
+      "Medicina General": ["Dr. Díaz", "Dra. Mejía", "Dr. Pérez", "Dra. Silva", "Dr. Torres"],
+      "Medicina Interna": ["Dr. Fernández", "Dra. Robles", "Dr. Navarro", "Dra. Peña", "Dr. Cedeño"],
+      "Nutrición": ["Lic. Ávila", "Lic. Moreno", "Lic. Guzmán", "Lic. Vargas", "Lic. Campos"],
+      "Optometría": ["Lic. Castillo", "Lic. Quiroz", "Lic. Medina", "Lic. Rivas", "Lic. Torres"],
+      "Pediatría": ["Dra. Luna", "Dr. Herrera", "Dra. Torres", "Dr. Díaz", "Dra. Paredes"],
+      "Psiquiatría": ["Dr. Escobar", "Dra. Navarro", "Dr. Peña", "Dra. Suárez", "Dr. Vega"]
+    };
+
+    const especialidadSelect = document.getElementById("especialidad");
+    const medicoSelect = document.getElementById("medico");
+    const formCita = document.getElementById("formCita");
+    const msgCita = document.getElementById("msgCita");
+
+    // Actualiza la lista de médicos según la especialidad seleccionada
+    especialidadSelect.addEventListener("change", () => {
+      const especialidad = especialidadSelect.value;
+      medicoSelect.innerHTML = '<option value="">Seleccione</option>';
+      if (especialidad && medicosPorEspecialidad[especialidad]) {
+        medicosPorEspecialidad[especialidad].forEach((med) => {
+          const opt = document.createElement("option");
+          opt.value = med;
+          opt.textContent = med;
+          medicoSelect.appendChild(opt);
+        });
+      }
+    });
+
+    // Maneja el envío del formulario de cita
+    formCita.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
+      if (!usuario) {
+        alert("Debes iniciar sesión.");
+        return;
+      }
+
+      const cita = {
+        cedula: usuario.cedula,
+        nombre: usuario.nombre,
+        especialidad: especialidadSelect.value,
+        medico: medicoSelect.value,
+        horario: document.getElementById("horario").value,
+        tipo: document.getElementById("tipo").value,
+        fechaReserva: new Date().toLocaleString()
+      };
+
+      const citas = JSON.parse(localStorage.getItem("citas") || "[]");
+      citas.push(cita);
+      localStorage.setItem("citas", JSON.stringify(citas));
+
+      msgCita.textContent = "¡Cita agendada exitosamente!";
+      formCita.reset();
+      medicoSelect.innerHTML = '<option value="">Seleccione</option>';
+    });
+  </script>
+
+
+
+<!-- Footer único -->
+<footer id="site-footer">
+  <div class="footer-content">
+    <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    <p>Políticas del Hospital</p>
+    <div class="social">
+      <a href="#">WhatsApp</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

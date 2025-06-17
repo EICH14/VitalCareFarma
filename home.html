@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Vital Care</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="home">
+
+<!-- Encabezado único -->
+<header id="site-header">
+  <div class="header-content">
+    <img src="vital.ico"alt="Logo Vital Care" class="logo">
+    <a href="home.html" class="logo-link">
+    <h1>Vital Care</h1>
+    </a>
+
+    <div class="contact-info">
+      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    </div>
+  </div>
+</header>
+
+<!-- ... aquí va el contenido único de cada página ... -->
+  
+<!-- Contenedor principal del sitio -->
+  <div class="container">
+
+    <!-- main: Contiene el contenido principal visible de la página -->
+    <main>
+      <!-- Encabezado principal de bienvenida -->
+      <h2>Bienvenido a Vital Care Farma</h2>
+
+      <!-- Párrafo para mostrar mensaje personalizado al usuario -->
+      <p id="bienvenidaUsuario"></p>
+    </main>
+
+    <!-- nav: Navegación principal del sitio con enlaces a otras páginas -->
+    <nav class="menu" aria-label="Menú principal">
+      <a href="hacer-cita.html">Hacer una cita</a>
+      <a href="ver-citas.html">Ver mis citas</a>
+      
+    </nav>
+
+    <!-- Aside: Zona para contenido relacionado o acciones complementarias -->
+    <aside>
+      <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </aside>
+  </div>
+
+  <script>
+    // Obtiene el usuario actual desde el almacenamiento local
+    const userActual = localStorage.getItem("usuarioActual");
+
+    if (!userActual) {
+      alert("Primero debes iniciar sesión");
+      window.location.href = "index.html";
+    } else {
+      const user = JSON.parse(userActual);
+      document.getElementById("bienvenidaUsuario").textContent = `Hola, ${user.nombre}`;
+    }
+
+    // Función para cerrar sesión eliminando el usuario actual
+    function cerrarSesion() {
+      localStorage.removeItem("usuarioActual");
+      window.location.href = "index.html";
+    }
+  </script>
+
+
+<!-- PIE DE PÁGINA COMÚN -->
+<!-- Footer único -->
+<footer id="site-footer">
+  <div class="footer-content">
+    <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    <p>Políticas del Hospital</p>
+    <div class="social">
+      <a href="#">WhatsApp</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

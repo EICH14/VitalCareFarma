@@ -1,0 +1,712 @@
+/* Importar fuentes desde Google Fonts */
+/* Inter: moderna, sans-serif para texto general */
+/* TeX Gyre Termes: serif clásica para encabezados */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=TeX+Gyre+Termes&display=swap');
+
+/* Variables CSS para facilitar el uso de colores y mantener consistencia */
+:root {
+  --chocolate: #d8dce7;        /* Color principal chocolate para títulos, botones */
+  --gris-claro: #E0E0E0;       /* Fondo suave para cajas y listas */
+  --gris-medio: #A0A0A0;       /* Bordes y textos secundarios */
+  --gris-oscuro: #505050;      /* Texto principal */
+  --negro: #121212;            /* Texto destacado y sombra */
+  --azul: #1E90FF;             /* Color azul para enlaces, botones secundarios */
+  --fondo: #FAFAFA;            /* Color fondo general de la página */
+}
+
+/* Reset básico: quitar márgenes y padding por defecto, incluir box-sizing para layout más predecible */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Estilos para encabezados */
+h1, h2, h3, h4, h5 {
+  font-family: 'TeX Gyre Termes', serif;  /* Tipografía serif para títulos */
+  color: var(--chocolate);                 /* Color chocolate */
+  margin-bottom: 15px;                     /* Separación abajo */
+}
+
+/* Tamaño y peso específico para h2 (títulos principales) */
+h2 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+/* Contenedor principal de las páginas */
+.container {
+  background-color: white;           /* Fondo blanco para resaltar */
+  max-width: 480px;                  /* Ancho máximo para no ser demasiado ancho en pantallas grandes */
+  width: 100%;                      /* Ocupa todo el ancho disponible */
+  padding: 30px 25px;               /* Espacio interno */
+  border-radius: 12px;              /* Bordes redondeados */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1); /* Sombra suave para profundidad */
+}
+
+/* Estilos para formularios: layout vertical con espacio entre elementos */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Etiquetas de formulario */
+label {
+  font-weight: 600;
+  color: var(--chocolate);
+  font-size: 0.9rem;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.8px solid var(--gris-medio);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+/* Efecto al enfocar el input: cambio de borde y sombra azul */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 5px var(--azul);
+}
+
+/* Botones con estilo moderno, color chocolate y efecto hover */
+button {
+  background-color: var(--chocolate);
+  color: white;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+button:hover {
+  background-color: #000d30; /* Chocolate más oscuro al pasar el mouse */
+}
+
+/* Estilos para enlaces, con color azul y efecto hover chocolate */
+a {
+  color: var(--azul);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--chocolate);
+  text-decoration: underline;
+}
+
+/* Mensajes de estado, errores o confirmaciones */
+.msg, #msgCita, #registroMsg, #loginMsg, #recuperarMsg {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--chocolate);
+  min-height: 22px; /* Para evitar que se mueva el contenido cuando aparece el mensaje */
+}
+
+/* Lista de citas: estilo de lista sin viñetas y con tarjetas */
+#listaCitas ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#listaCitas li {
+  background-color: var(--gris-claro);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  color: var(--negro);
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Botones dentro de la lista de citas, con color azul */
+#listaCitas button {
+  background-color: var(--azul);
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+#listaCitas button:hover {
+  background-color: #1565c0;
+}
+
+/* Responsive: para tablets y móviles ajusta paddings y anchos */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+    align-items: center; /* Centramos verticalmente en pantallas más pequeñas */
+  }
+  .container {
+    max-width: 95%;
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.6rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+} 
+
+
+/* Fondos específicos para cada página */
+
+/* ==== ESTILOS SOLO PARA LA PÁGINA DE LOGIN ==== */
+body.login {
+  background: linear-gradient(to right, #e1f5fe, #b3e5fc);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #01579b;
+}
+
+body.login .container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(1, 87, 155, 0.2);
+}
+
+body.login h2 {
+  text-align: center;
+  color: #0277bd;
+  margin-bottom: 10px;
+}
+
+body.login p a {
+  color: #0277bd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body.login p a:hover {
+  text-decoration: underline;
+}
+
+body.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+body.login label {
+  font-weight: bold;
+  color: #01579b;
+}
+
+body.login input[type="text"],
+body.login input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+body.login button {
+  background-color: #0277bd;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.login button:hover {
+  background-color: #01579b;
+}
+
+body.login .msg {
+  text-align: center;
+  font-weight: bold;
+  color: #01579b;
+}
+
+
+/* ==== ESTILOS SOLO PARA LA PÁGINA DE REGISTRO ==== */
+body.registro {
+  background: linear-gradient(to right, #f5faff, #e0f7fa);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #004d40;
+}
+
+body.registro .container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.2);
+}
+
+body.registro h2 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 10px;
+}
+
+body.registro p a {
+  color: #00796b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body.registro p a:hover {
+  text-decoration: underline;
+}
+
+body.registro form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+body.registro label {
+  font-weight: bold;
+  color: #004d40;
+}
+
+body.registro input[type="text"],
+body.registro input[type="email"],
+body.registro input[type="password"],
+body.registro input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+body.registro button {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.registro button:hover {
+  background-color: #004d40;
+}
+
+body.registro .msg {
+  text-align: center;
+  font-weight: bold;
+  color: #00796b;
+}
+
+
+/* ==== ESTILOS SOLO PARA LA PÁGINA RECUPERAR CONTRASEÑA ==== */
+body.recuperar {
+  background: linear-gradient(to bottom right, #fff, #d0f0f7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #003344;
+}
+
+body.recuperar .container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 51, 68, 0.2);
+}
+
+body.recuperar h2 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 25px;
+}
+
+body.recuperar form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+body.recuperar label {
+  font-weight: bold;
+  color: #004d40;
+}
+
+body.recuperar input[type="email"],
+body.recuperar input[type="text"],
+body.recuperar input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+body.recuperar button {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.recuperar button:hover {
+  background-color: #004d40;
+}
+
+body.recuperar .msg {
+  text-align: center;
+  font-weight: bold;
+  color: #00796b;
+}
+ 
+
+/* ==== ESTILOS SOLO PARA LA PÁGINA HACER CITA ==== */
+body.hacer-cita {
+
+    background: url("sala\ de\ espera.svg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff; /* O ajusta el color de texto según la imagen */
+  /*
+ background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+  font-family: Arial, sans-serif;
+  color: #003344;*/
+ 
+}
+
+body.hacer-cita .container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 51, 68, 0.2);
+}
+
+body.hacer-cita h2 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+body.hacer-cita form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+body.hacer-cita label {
+  font-weight: bold;
+  color: #004d40;
+}
+
+body.hacer-cita select,
+body.hacer-cita button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+body.hacer-cita select:focus,
+body.hacer-cita button:focus {
+  outline: none;
+  border-color: #00796b;
+}
+
+body.hacer-cita button {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+body.hacer-cita button:hover {
+  background-color: #004d40;
+}
+
+body.hacer-cita #msgCita {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+  text-align: center;
+}
+
+
+body.ver-citas {
+  background-color: #f7f7f7; /* gris claro */
+}
+
+/* ==== ESTILOS SOLO PARA LA PÁGINA HOME ==== */
+body.home {
+    background: url("fondo-home.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff; /* O ajusta el color de texto según la imagen */
+
+  /*background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+  font-family: Arial, sans-serif;
+  color: #003344;*/
+
+}
+
+body.home .container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+body.home h2 {
+  color: #003366;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+body.home p#bienvenidaUsuario {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #333;
+  text-align: center;
+}
+
+/* Menú exclusivo en la home */
+body.home nav.menu {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+body.home nav.menu a {
+  background-color: #011324;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+body.home nav.menu a:hover {
+  background-color: #003e8c;
+}
+
+/* Botón cerrar sesión solo en home */
+body.home aside {
+  text-align: center;
+  margin-top: 20px;
+}
+
+body.home aside button {
+  background-color: #da7517;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+body.home aside button:hover {
+  background-color: #e07934;
+}
+
+/* ==== ESTILOS SOLO PARA LA PÁGINA DE VER CITAS ==== */
+body.ver-citas {
+
+  background: linear-gradient(to right, #e8f5e9, #e8ece8);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #54e654;
+}
+
+body.ver-citas .container {
+
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: url("doctor1.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff; /* O ajusta el color de texto según la imagen */
+  background-color: #6aa09de8;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(20, 22, 20, 0.3);
+  
+}
+
+body.ver-citas h1 {
+  text-align: center;
+  color: #f1eeee;
+  margin-bottom: 30px;
+}
+
+body.ver-citas .lista-citas {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.ver-citas .cita-item {
+  background-color: #01061b;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+body.ver-citas .cita-item:hover {
+  transform: scale(1.01);
+}
+
+body.ver-citas .cita-item p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+body.ver-citas .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #a3d397;
+  color: rgb(203, 228, 135);
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.ver-citas .btn:hover {
+  background-color: #2e7d32;
+}
+
+body.ver-citas .btn.volver {
+  background-color: #5f5f5e;
+  margin-top: 30px;
+}
+
+body.ver-citas .btn.volver:hover {
+  background-color: #689f38;
+}
+
+@media (max-width: 600px) {
+  body.ver-citas .container {
+    padding: 15px;
+  }
+
+  body.ver-citas .cita-item {
+    padding: 15px;
+  }
+
+  body.ver-citas h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+/* NUEVO: Estructura base del layout */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--fondo);
+  color: var(--gris-oscuro);
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Asegura que el contenido se expanda para empujar el footer hacia abajo */
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 30px 25px;
+  background-color: rgb(122, 146, 110);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+/* HEADER (ya lo tienes pero te agrego por si tienes conflicto con otro) */
+#site-header {
+  background-color: rgb(16, 17, 26);
+  color: white;
+  padding: 15px 20px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+/* FOOTER */
+#site-footer {
+  background-color: var(--gris-medio);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: auto; /* ¡Esto hace que el footer se empuje hacia abajo! */
+}
+
+.footer-content .social a {
+  color: white;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer-content .social a:hover {
+  text-decoration: underline;
+}
+
