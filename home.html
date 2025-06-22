@@ -5,23 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title> Vital Care</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- En el <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
+<!-- Encabezado único -->
 
-<body class="home">
-
+<body class="home" >
+  
+ 
 <!-- Encabezado único -->
 <header id="site-header">
   <div class="header-content">
-    <img src="Vital.ico"alt="Logo Vital Care" class="logo">
-    <a href="home.html" class="logo-link">
+    <div class="logo-area">
+      <img src="Vital.ico" alt="Logo Vital Care" class="logo">
+
+      <a href="home.html" class="logo-link">
     <h1>Vital Care</h1>
-    </a>
+  </a>
+<br>
+<div class="hamburger" id="hamburger">&#9776; Menú</div>
+<div id="menu">
+  <a href="home.html">Inicio</a><br>
+  <a href="hacer-cita.html">Hacer cittas</a><br>
+  <a href="ver-citas.html">Ver Citas</a>
+</div>
+
+<script>
+  document.getElementById("hamburger").addEventListener("click", function () {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  });
+</script>
+    </div>
+
+    
+
 
     <div class="contact-info">
-      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+      <p><strong>Tel:</strong> <a href="tel:+5072667907">2667907</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:vitalcare3@gmail.com">vitalcare3@gmail.com</a></p>
     </div>
   </div>
+  <!-- En el <head> -->
+
+
 </header>
+
 
 <!-- ... aquí va el contenido único de cada página ... -->
   
@@ -43,6 +77,65 @@
       <a href="ver-citas.html">Ver mis citas</a>
       
     </nav>
+
+<!-- CARRUSEL-->
+  <div class="vc-carousel">
+  <button class="vc-carousel-btn vc-prev" onclick="vcPrevImage()">⟨</button>
+  <button class="vc-carousel-btn vc-next" onclick="vcNextImage()">⟩</button>
+
+  <div class="vc-carousel-text">
+    <h2 class="vc-title"></h2>
+    <p class="vc-description"></p>
+  </div>
+
+  <div class="vc-carousel-image">
+    <img class="vc-img" src="" alt="Imagen del carrusel" />
+  </div>
+</div>
+
+<!-- CARRUSEL SCRIPT-->
+ <script>
+  const vcImages = [
+    {
+      src: "vit.png",
+      title: "¿Quiénes Somos?",
+      description:
+        "Somos tu farmacia online de confianza, ofreciendo una amplia variedad de productos de salud, bienestar y cuidado personal. Con un servicio rápido y seguro, garantizamos la entrega a domicilio de medicamentos, suplementos y productos de higiene."
+    },
+    {
+      src: "sala de espera.svg",
+      title: "Citas",
+      description:
+        "La atención de citas médicas para la CSS desde esta farmacia ofrece una base de citas a través del seguro social, brindando servicios esenciales para el diagnóstico y monitoreo de la salud. Incluye la recolección de muestras como sangre y orina, que luego son analizadas para detectar diversas condiciones médicas. Este servicio permite a los pacientes realizar pruebas de laboratorio de manera conveniente y accesible, recibiendo resultados rápidos y precisos que ayudan en la prevención."
+    }
+  ];
+
+  let vcIndex = 0;
+
+  function vcShowImage() {
+    const image = vcImages[vcIndex];
+    document.querySelector(".vc-img").src = image.src;
+    document.querySelector(".vc-img").alt = image.title;
+    document.querySelector(".vc-title").textContent = image.title;
+    document.querySelector(".vc-description").textContent = image.description;
+  }
+
+  function vcNextImage() {
+    vcIndex = (vcIndex + 1) % vcImages.length;
+    vcShowImage();
+  }
+
+  function vcPrevImage() {
+    vcIndex = (vcIndex - 1 + vcImages.length) % vcImages.length;
+    vcShowImage();
+  }
+
+  window.addEventListener("load", () => {
+    vcShowImage();
+    setInterval(vcNextImage, 20000);
+  });
+</script>
+
 
     <!-- Aside: Zona para contenido relacionado o acciones complementarias -->
     <aside>
@@ -74,14 +167,23 @@
 <!-- Footer único -->
 <footer id="site-footer">
   <div class="footer-content">
-    <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
-    <p>Políticas del Hospital</p>
-    <div class="social">
-      <a href="#">WhatsApp</a> |
-      <a href="#">Instagram</a>
+    <div class="footer-contact">
+      <p><strong>Tel:</strong> <a href="tel:+5072667907">2667907</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:vitalcare3@gmail.com">vitalcare3@gmail.com</a></p>
+    </div>
+
+    <div class="footer-links">
+      <p><a href="#">Políticas del Hospital</a></p>
+      <div class="social">
+       <!-- En el footer -->
+<a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+
+      </div>
     </div>
   </div>
 </footer>
+
 
 
 </body>
