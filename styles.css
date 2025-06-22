@@ -8,12 +8,16 @@
 :root {
   --chocolate: #d8dce7;        /* Color principal chocolate para títulos, botones */
   --gris-claro: #E0E0E0;       /* Fondo suave para cajas y listas */
-  --gris-medio: #A0A0A0;       /* Bordes y textos secundarios */
-  --gris-oscuro: #505050;      /* Texto principal */
-  --negro: #121212;            /* Texto destacado y sombra */
+  --gris-medio: #000000;       /* Bordes y textos secundarios */
+  --gris-oscuro: #000000;      /* Texto principal */
+  --negro: #000000;            /* Texto destacado y sombra */
   --azul: #1E90FF;             /* Color azul para enlaces, botones secundarios */
-  --fondo: #FAFAFA;            /* Color fondo general de la página */
+  --fondo: #030101;            /* Color fondo general de la página */
 }
+
+
+
+
 
 /* Reset básico: quitar márgenes y padding por defecto, incluir box-sizing para layout más predecible */
 * {
@@ -118,6 +122,7 @@ a:hover {
 
 /* Mensajes de estado, errores o confirmaciones */
 .msg, #msgCita, #registroMsg, #loginMsg, #recuperarMsg {
+  text:var(--azul);
   margin-top: 10px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -174,14 +179,24 @@ a:hover {
   }
 } 
 
+@media (max-width: 380px) {
+  h2 {
+    font-size: 1.6rem;
+  }
+  footer.footer-content {
+    font-size: 1rem;
+    padding: auto 0;
+  }
+} 
+
 
 /* Fondos específicos para cada página */
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA DE LOGIN ==== */
 body.login {
-  background: linear-gradient(to right, #e1f5fe, #b3e5fc);
+  background: linear-gradient(to right, #00aeff, #9ce0ff);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #01579b;
+  color: #000000;
 }
 
 body.login .container {
@@ -190,23 +205,24 @@ body.login .container {
   padding: 30px;
   background-color: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(1, 87, 155, 0.2);
+  box-shadow: 0 4px 12px rgba(254, 255, 255, 0.712);
 }
 
 body.login h2 {
   text-align: center;
-  color: #0277bd;
+  color: #121213;
   margin-bottom: 10px;
 }
 
 body.login p a {
-  color: #0277bd;
+  color: #1d10d3;
   text-decoration: none;
   font-weight: bold;
 }
 
 body.login p a:hover {
   text-decoration: underline;
+
 }
 
 body.login form {
@@ -223,7 +239,7 @@ body.login label {
 body.login input[type="text"],
 body.login input[type="password"] {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 8px;
   font-size: 1rem;
 }
@@ -240,21 +256,21 @@ body.login button {
 }
 
 body.login button:hover {
-  background-color: #01579b;
+  background-color: #000000;
 }
 
 body.login .msg {
   text-align: center;
   font-weight: bold;
-  color: #01579b;
+  color: #0081e4;
 }
 
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA DE REGISTRO ==== */
 body.registro {
-  background: linear-gradient(to right, #f5faff, #e0f7fa);
+  background: linear-gradient(to right, #f5faff, #00e1ff);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #004d40;
+  color: #000000;
 }
 
 body.registro .container {
@@ -263,7 +279,7 @@ body.registro .container {
   padding: 30px;
   background-color: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.2);
+  box-shadow: 0 4px 12px rgba(254, 255, 255, 0.2);
 }
 
 body.registro h2 {
@@ -273,7 +289,7 @@ body.registro h2 {
 }
 
 body.registro p a {
-  color: #00796b;
+  color: #0018f3;
   font-weight: bold;
   text-decoration: none;
 }
@@ -327,7 +343,7 @@ body.registro .msg {
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA RECUPERAR CONTRASEÑA ==== */
 body.recuperar {
-  background: linear-gradient(to bottom right, #fff, #d0f0f7);
+  background: linear-gradient(to bottom right, #0077ff, #d0f0f7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #003344;
 }
@@ -386,7 +402,7 @@ body.recuperar button:hover {
 body.recuperar .msg {
   text-align: center;
   font-weight: bold;
-  color: #00796b;
+  color: #003cff;
 }
  
 
@@ -485,9 +501,9 @@ body.home .container {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  max-width: 600px;
-  margin: 40px auto;
+  padding: 100px;
+  max-width: 900px;
+  margin: 50px auto;
 }
 
 body.home h2 {
@@ -667,21 +683,36 @@ body {
   padding: 30px 25px;
   background-color: rgb(122, 146, 110);
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 14px hsl(210, 100%, 50%)
+
+
+  
 }
 
-/* HEADER (ya lo tienes pero te agrego por si tienes conflicto con otro) */
+/* HEADER por si tienes conflicto con otro */
 #site-header {
   background-color: rgb(16, 17, 26);
   color: white;
   padding: 15px 20px;
+
+
+  
 }
+
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+
+
+
+  
+}
+.contact-info a {
+  color: #0051ff;
+  text-decoration: none;
 }
 
 .logo {
@@ -692,8 +723,13 @@ body {
 
 /* FOOTER */
 #site-footer {
-  background-color: var(--gris-medio);
-  color: white;
+
+   
+  background: linear-gradient(50deg, #003366, hsl(202, 100%, 50%));
+   transition: background-color 2s, transform 2s;
+
+ 
+  color: rgb(0, 0, 0);
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
@@ -701,7 +737,7 @@ body {
 }
 
 .footer-content .social a {
-  color: white;
+  color: rgb(17, 17, 17);
   margin: 0 5px;
   text-decoration: none;
 }
@@ -709,4 +745,233 @@ body {
 .footer-content .social a:hover {
   text-decoration: underline;
 }
+
+
+
+/* === MEJORAS VISUALES AVANZADAS === */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.container, h2, nav.menu a, aside button {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Sombras para encabezados */
+h1, h2 {
+  text-shadow: 1px 1px 2px #00e1ff;
+}
+
+/* Transición de enlaces */
+a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+a:hover {
+  color: var(--chocolate);
+  text-shadow: 0 0 5px rgba(0, 170, 14, 0.959);
+}
+
+/* Gradiente y sombra en botones */
+button, .btn {
+  background: linear-gradient(135deg, var(--chocolate), #168d20);
+  box-shadow: 0 4px 8px rgb(0, 183, 255);
+  transition: all 0.3s ease;
+}
+button:hover, .btn:hover {
+  background: linear-gradient(135deg, #ff7300, var(--chocolate));
+  transform: scale(1.02);
+}
+
+/* Menú en home con transición animada */
+body.home nav.menu a {
+  transition: background-color 0.3s, transform 0.3s;
+}
+body.home nav.menu a:hover {
+  transform: scale(1.03);
+  background: linear-gradient(90deg, #003366, #03cee9);
+}
+
+/* === HEADER MEJORADO === */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-link h1 {
+  font-size: 1.8rem;
+  color: white;
+  margin: 0;
+}
+
+.contact-info {
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+.contact-info a {
+  color: #0051ff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* === FOOTER MEJORADO === */
+
+
+.footer-content {
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-contact p,
+.footer-links p {
+  margin: 5px 0;
+}
+
+.footer-contact a,
+.footer-links a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social a {
+  margin: 0 8px;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+  transition: color 0.3s ease;
+}
+
+.social a:hover {
+  color: var(--chocolate);
+}
+ 
+
+
+
+
+/* Título principal con text-shadow elegante */
+.logo-link h1 {
+  font-size: 2rem;
+  font-family: 'TeX Gyre Termes', serif;
+  color: white;
+  text-shadow:
+    1px 1px 3px rgb(0, 38, 255),
+    2px 2px 6px rgba(255, 238, 0, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.logo-link h1:hover {
+  text-shadow:
+    2px 2px 6px rgb(255, 255, 255),
+    4px 4px 12px rgba(0, 255, 34, 0.4);
+  cursor: pointer;
+}
+
+/*CARRUSEEEL*/
+/* Carrusel Vital Care */
+.vc-carousel {
+  position: relative;
+  display: flex;
+  width: 110%;
+  height: 450px;
+  background-color: #fcfcfc;
+  padding: 20px 60px;
+  gap: 30px;
+  overflow: hidden;
+  border-top: 2px solid #e7e5e5;
+  border-bottom: 2px solid #e7dfdf;
+}
+
+.vc-carousel-text {
+  flex: 1;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd5d5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.vc-carousel-text h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+
+.vc-description{
+  color: #000000;
+   margin: 0;
+  font-size: 1rem;
+  line-height: 1.5; 
+}
+
+.vc-carousel-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vc-carousel-image img {
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.vc-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.1);
+  border: none;
+  padding: 10px 16px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+.vc-carousel-btn:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.vc-prev {
+  left: 10px;
+}
+
+.vc-next {
+  right: 10px;
+}
+
+/* Menu hambur*/
+#menu {
+    display: none;
+    background-color: rgb(16, 17, 26);
+    padding: 10px;
+  }
+
+  .hamburger {
+    cursor: pointer;
+    font-size: 24px;
+  }
+
 
