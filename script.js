@@ -97,59 +97,102 @@ if (loginForm) {
 }
 
 // --- RECUPERAR/CAMBIO DE CONTRASEÑA ---
-const recuperarForm = document.getElementById("recuperarForm");
-if (recuperarForm) {
-  recuperarForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+//const recuperarForm = document.getElementById("recuperarForm");
+//if (recuperarForm) {
+  //recuperarForm.addEventListener("submit", (e) => {
+    //e.preventDefault();
 
-    const cedula = document.getElementById("cedula").value.trim().toUpperCase();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const confirmPassword = document.getElementById("confirmPassword").value.trim();
-    const recuperarMsg = document.getElementById("recuperarMsg");
-    recuperarMsg.textContent = "";
-    recuperarMsg.className = "error-message";
+    //const cedula = document.getElementById("cedula").value.trim().toUpperCase();
+    //const email = document.getElementById("email").value.trim();
+    //const password = document.getElementById("password").value.trim();
+    //const confirmPassword = document.getElementById("confirmPassword").value.trim();
+    //const recuperarMsg = document.getElementById("recuperarMsg");
+    //recuperarMsg.textContent = "";
+    //recuperarMsg.className = "error-message";
 
-    // Validaciones
-    if (!validarCedula(cedula)) {
-      recuperarMsg.textContent = "Cédula inválida. Ejemplo válido: 8-1234-5678 o E-1-1234-5678";
-      return;
-    }
-    if (!validarEmail(email)) {
-      recuperarMsg.textContent = "Email inválido.";
-      return;
-    }
-    if (!validarPassword(password)) {
-      recuperarMsg.textContent = "La contraseña debe tener al menos 6 caracteres.";
-      return;
-    }
-    if (password !== confirmPassword) {
-      recuperarMsg.textContent = "Las contraseñas no coinciden.";
-      return;
-    }
+    //* Validaciones
+    //if (!validarCedula(cedula)) {
+      //recuperarMsg.textContent = "Cédula inválida. Ejemplo válido: 8-1234-5678 o E-1-1234-5678";
+      //return;
+    //}
+    //if (!validarEmail(email)) {
+      //recuperarMsg.textContent = "Email inválido.";
+      //return;
+    //}
+   // if (!validarPassword(password)) {
+     // recuperarMsg.textContent = "La contraseña debe tener al menos 6 caracteres.";
+     // return;
+    //}
+   // if (password !== confirmPassword) {
+      //recuperarMsg.textContent = "Las contraseñas no coinciden.";
+      //return;
+    //}
 
     // Buscar usuario
-    let usuarios = getUsuarios();
-    const index = usuarios.findIndex(u =>
-      u.cedula === cedula && u.email.toLowerCase() === email.toLowerCase()
-    );
+   // let usuarios = getUsuarios();
+   // const index = usuarios.findIndex(u =>
+    //  u.cedula === cedula && u.email.toLowerCase() === email.toLowerCase()
+   // );
 
-    if (index === -1) {
-      recuperarMsg.textContent = "No se encontró usuario con esa cédula y correo.";
-      return;
-    }
+   // if (index === -1) {
+    //  recuperarMsg.textContent = "No se encontró usuario con esa cédula y correo.";
+   //   return;
+   // }
 
     // Actualizar contraseña
-    usuarios[index].password = password;
-    setUsuarios(usuarios);
+    //usuarios[index].password = password;
+   // setUsuarios(usuarios);
 
-    recuperarMsg.className = "success-message";
-    recuperarMsg.textContent = "Contraseña cambiada con éxito.";
+    //recuperarMsg.className = "success-message";
+    //recuperarMsg.textContent = "Contraseña cambiada con éxito.";
 
-    recuperarForm.reset();
-setTimeout(() => {
-  window.location.href = "index.html"; 
-}, 1000); 
+ //   recuperarForm.reset();
+//setTimeout(() => {
+ // window.location.href = "index.html"; 
+//}, 1000); 
 
+//  });
+//}
+
+// Recuperar contraseña/ ACTUALIZADO!!
+const recuperarForm = document.getElementById("recuperarForm");
+if (recuperarForm) {
+  const cambiarForm = document.getElementById("cambiarForm");
+  let codigoGenerado = "";
+  recuperarForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("recuperarEmail").value.trim();
+    const usuarios = getUsuarios();
+    const user = usuarios.find((u) => u.email === email);
+    if (user) {
+      codigoGenerado = Math.floor(100000 + Math.random() * 900000).toString();
+      document.getElementById("recuperarMsg").textContent =
+        "Tu código es: " + codigoGenerado;
+      cambiarForm.style.display = "block";
+    } else {
+      document.getElementById("recuperarMsg").textContent = "Email no encontrado.";
+    }
+  });
+
+  cambiarForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const codigo = document.getElementById("codigo").value.trim();
+    const newPassword = document.getElementById("newPassword").value;
+    if (codigo === codigoGenerado) {
+      const email = document.getElementById("recuperarEmail").value.trim();
+      let usuarios = getUsuarios();
+      usuarios = usuarios.map((u) =>
+        u.email === email ? { ...u, password: newPassword } : u
+      );
+      setUsuarios(usuarios);
+      document.getElementById("recuperarMsg").textContent =
+        "Contraseña cambiada con éxito.";
+      cambiarForm.style.display = "none";
+    } else {
+      document.getElementById("recuperarMsg").textContent = "Código incorrecto.";
+    }
   });
 }
+
+//CARRUSEL SCRIPT
+
