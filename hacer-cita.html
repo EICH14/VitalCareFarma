@@ -5,20 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hacer una Cita</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="hacer-cita">
 
 <!-- Encabezado único -->
 <header id="site-header">
   <div class="header-content">
-    <img src="Vital.ico" alt="Logo Vital Care" class="logo">
-    <a href="home.html" class="logo-link">
+    <div class="logo-area">
+      <img src="Vital.ico" alt="Logo Vital Care" class="logo">
+
+      <a href="home.html" class="logo-link">
     <h1>Vital Care</h1>
-    </a>
+  </a>
+      
+  <br>
+<div class="hamburger" id="hamburger">&#9776; Menú</div>
+<div id="menu">
+  <a href="home.html">Inicio</a><br>
+  <a href="hacer-cita.html">Hacer cittas</a><br>
+  <a href="ver-citas.html">Ver Citas</a>
+</div>
+
+<script>
+  document.getElementById("hamburger").addEventListener("click", function () {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  });
+</script>
+
+    </div>
+
     <div class="contact-info">
-      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+      <p><strong>Tel:</strong> <a href="tel:+5072667907">2667907</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:vitalcare3@gmail.com">vitalcare3@gmail.com</a></p>
     </div>
   </div>
+  <!-- En el <head> -->
+
+
 </header>
 
 <!-- ... aquí va el contenido único de cada página ... -->
@@ -141,11 +170,19 @@
 <!-- Footer único -->
 <footer id="site-footer">
   <div class="footer-content">
-    <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
-    <p>Políticas del Hospital</p>
-    <div class="social">
-      <a href="#">WhatsApp</a> |
-      <a href="#">Instagram</a>
+    <div class="footer-contact">
+      <p><strong>Tel:</strong> <a href="tel:+5072667907">2667907</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:vitalcare3@gmail.com">vitalcare3@gmail.com</a></p>
+    </div>
+
+    <div class="footer-links">
+      <p><a href="#">Políticas del Hospital</a></p>
+      <div class="social">
+       <!-- En el footer -->
+<a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+
+      </div>
     </div>
   </div>
 </footer>
