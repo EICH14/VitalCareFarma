@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recuperar contraseña</title>
+  
+  
+  
+    <meta name="description" content="pagina para registrarte con tus datos de inicio de sesion en VitalCareFarma">
+  
+  <title>Registro</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="recuperar">
+
+<body class="registro">
 
 <!-- Encabezado único -->
 <header id="site-header">
   <div class="header-content">
     <img src="Vital.ico" alt="Logo Vital Care" class="logo">
-    <a href="index.html" class="logo-link">
     <h1>Vital Care</h1>
-    </a>
     <div class="contact-info">
-      <p>Tel: 2667907 | Correo: vitalcare3@gmail.com</p>
+    <!----SSSSS
+<p><strong>Tel:</strong> <a href="tel:+5072667907">2667907</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:vitalcare3@gmail.com">vitalcare3@gmail.com</a></p>-->
+
     </div>
   </div>
 </header>
@@ -25,31 +32,34 @@
 
   <!-- Contenedor principal -->
   <div class="container">
-
-    <!-- main: contenido principal de la página -->
+    
+    <!-- main: Contenido principal de la página -->
     <main>
-      <h2>Recuperar contraseña</h2>
+      <h2>Crear nueva cuenta</h2>
+      <p>¿Ya estás registrado? <a href="index.html">Iniciar sesión</a></p>
 
-      <!-- Formulario para enviar email registrado -->
-      <form id="recuperarForm" aria-label="Formulario para enviar email de recuperación">
-        <label for="recuperarEmail">Email registrado</label>
-        <input type="email" id="recuperarEmail" name="recuperarEmail" required />
-        <button type="submit">Enviar código</button>
+      <!-- Formulario de registro -->
+      <form id="registroForm" aria-label="Formulario de registro de usuario">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="cedula">Cédula</label>
+        <input type="text" id="cedula" name="cedula" required />
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="dob">Fecha de nacimiento</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <button type="submit">Registrarse</button>
+
+        <!-- Mensaje de error o éxito -->
+        <div class="msg" id="registroMsg" aria-live="polite"></div>
       </form>
-
-      <!-- Formulario para cambiar la contraseña, oculto inicialmente -->
-      <form id="cambiarForm" style="display:none;" aria-label="Formulario para cambiar contraseña">
-        <label for="codigo">Código recibido</label>
-        <input type="text" id="codigo" name="codigo" required />
-
-        <label for="newPassword">Nueva contraseña</label>
-        <input type="password" id="newPassword" name="newPassword" required />
-
-        <button type="submit">Cambiar contraseña</button>
-      </form>
-
-      <!-- Mensajes de error o éxito -->
-      <div class="msg" id="recuperarMsg" aria-live="polite"></div>
     </main>
   </div>
   <script src="script.js"></script>
