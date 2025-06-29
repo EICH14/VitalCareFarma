@@ -898,8 +898,116 @@ body.home nav.menu a:hover {
   cursor: pointer;
 }
 
-/*CARRUSEEEL*/
-/* Carrusel Vital Care */
+
+
+
+
+
+
+
+/* === CARRUSEL AMPLIADO Y RESPONSIVO === */
+.vc-carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-color: #fcfcfc;
+  padding: 20px;
+  gap: 20px;
+  overflow: hidden;
+  border-top: 2px solid #e7e5e5;
+  border-bottom: 2px solid #e7dfdf;
+  border-radius: 12px;
+}
+
+.vc-carousel-text {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd5d5;
+  background-color: white;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: justify;
+  overflow: hidden;
+}
+
+.vc-carousel-text h2 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #003366;
+}
+
+.vc-description {
+  color: #000000;
+  font-size: 1rem;
+}
+
+.vc-carousel-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vc-carousel-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Botones del carrusel */
+.vc-carousel-btn {
+  position: absolute;
+  bottom: 15px;
+  background-color: rgba(0,0,0,0.2);
+  border: none;
+  padding: 8px 12px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.vc-carousel-btn:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.vc-prev {
+  left: 30%;
+}
+
+.vc-next {
+  right: 30%;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .vc-carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vc-prev {
+    left: 20%;
+  }
+
+  .vc-next {
+    right: 20%;
+  }
+}
+
+
+
+/*CARRUSEEEL
+Carrusel Vital Care 
 .vc-carousel {
   position: relative;
   display: flex;
@@ -920,7 +1028,7 @@ body.home nav.menu a:hover {
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #ddd5d5;
-  overflow: visible; /* Mostrar todo el texto */
+  overflow: visible; /* Mostrar todo el texto 
   display: block;
   text-align: left;
 }
@@ -930,7 +1038,7 @@ body.home nav.menu a:hover {
 
 
 
-/*.vc-carousel-text {
+.vc-carousel-text {
   flex: 1;
   padding: 15px;
   border-radius: 6px;
@@ -941,7 +1049,7 @@ body.home nav.menu a:hover {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   
-}*/
+}
 
 .vc-carousel-text h2 {
   margin: 0 0 10px 0;
@@ -998,7 +1106,7 @@ body.home nav.menu a:hover {
   right: 10px;
 }
 
-/* Menu hambur*/
+/* Menu hambur
 #menu {
     display: none;
     background-color: rgb(16, 17, 26);
@@ -1009,8 +1117,8 @@ body.home nav.menu a:hover {
     cursor: pointer;
     font-size: 24px;
   }
-/* TITULOS INVISIBLES  */
-.sr-only {
+ TITULOS INVISIBLES  */
+/*.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1062,5 +1170,5 @@ body.home nav.menu a:hover {
     right: 20%;
   }
 }
-
+*/
 
