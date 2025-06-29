@@ -913,7 +913,24 @@ body.home nav.menu a:hover {
   border-bottom: 2px solid #e7dfdf;
 }
 
+
+
 .vc-carousel-text {
+  flex: 1;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd5d5;
+  overflow: visible; /* Mostrar todo el texto */
+  display: block;
+  text-align: left;
+}
+
+
+
+
+
+
+/*.vc-carousel-text {
   flex: 1;
   padding: 15px;
   border-radius: 6px;
@@ -923,7 +940,8 @@ body.home nav.menu a:hover {
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-}
+  
+}*/
 
 .vc-carousel-text h2 {
   margin: 0 0 10px 0;
@@ -1011,6 +1029,9 @@ body.home nav.menu a:hover {
     padding: 15px;
     height: auto;
   }
+  .vc-carousel-text {
+  margin-bottom: 15px;
+}
 
   .vc-carousel-text,
   .vc-carousel-image {
