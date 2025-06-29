@@ -1003,5 +1003,43 @@ body.home nav.menu a:hover {
   border: 0;
 }
 
+@media (max-width: 600px) {
+  .vc-carousel {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    height: auto;
+  }
+
+  .vc-carousel-text,
+  .vc-carousel-image {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .vc-carousel-image img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .vc-carousel-btn {
+    top: unset;
+    bottom: 10px;
+    transform: none;
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  .vc-prev {
+    left: 20%;
+  }
+
+  .vc-next {
+    right: 20%;
+  }
+}
 
 
