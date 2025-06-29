@@ -76,10 +76,9 @@
     </form>
   </main>
 </div>
-  
+
 <script>
-  const medicosPorEspecialidad = {
-    "Dermatología": ["Dra. Gómez", "Dr. Ruiz", "Dra. Pérez", "Dr. Mendoza", "Dr. Ortega"],
+  const medicosPorEspecialidad = { "Dermatología": ["Dra. Gómez", "Dr. Ruiz", "Dra. Pérez", "Dr. Mendoza", "Dr. Ortega"],
     "Estimulación Temprana": ["Lic. Mora", "Lic. Villalba", "Lic. Castillo", "Lic. Delgado", "Lic. Ramos"],
     "Gineo-Obstetricia": ["Dra. Herrera", "Dr. Velásquez", "Dra. Ríos", "Dra. Cáceres", "Dr. López"],
     "Medicina General": ["Dr. Díaz", "Dra. Mejía", "Dr. Pérez", "Dra. Silva", "Dr. Torres"],
@@ -87,11 +86,9 @@
     "Nutrición": ["Lic. Ávila", "Lic. Moreno", "Lic. Guzmán", "Lic. Vargas", "Lic. Campos"],
     "Optometría": ["Lic. Castillo", "Lic. Quiroz", "Lic. Medina", "Lic. Rivas", "Lic. Torres"],
     "Pediatría": ["Dra. Luna", "Dr. Herrera", "Dra. Torres", "Dr. Díaz", "Dra. Paredes"],
-    "Psiquiatría": ["Dr. Escobar", "Dra. Navarro", "Dr. Peña", "Dra. Suárez", "Dr. Vega"]
-  };
-
-  const horariosHabitaciones = {
-    "Dra. Gómez": { horario: "AM - 08:00", habitacion: "101" },
+    "Psiquiatría": ["Dr. Escobar", "Dra. Navarro", "Dr. Peña", "Dra. Suárez", "Dr. Vega"] };
+  
+  const horariosHabitaciones = { "Dra. Gómez": { horario: "AM - 08:00", habitacion: "101" },
     "Dr. Ruiz": { horario: "PM - 14:00", habitacion: "102" },
     "Dra. Pérez": { horario: "AM - 09:00", habitacion: "103" },
     "Dr. Mendoza": { horario: "PM - 15:00", habitacion: "104" },
@@ -132,13 +129,15 @@
     "Dra. Navarro": { horario: "PM - 16:25", habitacion: "902" },
     "Dr. Peña": { horario: "AM - 09:50", habitacion: "903" },
     "Dra. Suárez": { horario: "PM - 13:55", habitacion: "904" },
-    "Dr. Vega": { horario: "AM - 08:05", habitacion: "905" }
-  };
+    "Dr. Vega": { horario: "AM - 08:05", habitacion: "905" } };
 
   const especialidadSelect = document.getElementById("especialidad");
   const medicoSelect = document.getElementById("medico");
   const horarioInput = document.getElementById("horario");
   const habitacionInput = document.getElementById("habitacion");
+  const tipoSelect = document.getElementById("tipo");
+  const formCita = document.getElementById("formCita");
+  const msgCita = document.getElementById("msgCita");
 
   especialidadSelect.addEventListener("change", () => {
     const especialidad = especialidadSelect.value;
@@ -163,6 +162,36 @@
       habitacionInput.value = "";
     }
   });
+
+  formCita.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
+    if (!usuario) {
+      alert("Debes iniciar sesión.");
+      return;
+    }
+
+    const cita = {
+      cedula: usuario.cedula,
+      nombre: usuario.nombre,
+      especialidad: especialidadSelect.value,
+      medico: medicoSelect.value,
+      horario: horarioInput.value,
+      habitacion: habitacionInput.value,
+      tipo: tipoSelect.value,
+      fechaReserva: new Date().toLocaleString()
+    };
+
+    const citas = JSON.parse(localStorage.getItem("citas") || "[]");
+    citas.push(cita);
+    localStorage.setItem("citas", JSON.stringify(citas));
+
+    msgCita.textContent = "¡Cita agendada exitosamente!";
+    formCita.reset();
+    medicoSelect.innerHTML = '<option value="">Seleccione</option>';
+    horarioInput.value = "";
+    habitacionInput.value = "";
+  });
 </script>
 
 <footer id="site-footer">
@@ -180,6 +209,5 @@
     </div>
   </div>
 </footer>
-
 </body>
 </html>
