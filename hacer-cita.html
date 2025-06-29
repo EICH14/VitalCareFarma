@@ -64,6 +64,10 @@
       <label for="habitacion">Habitación</label>
       <input type="text" id="habitacion" name="habitacion" readonly>
 
+      <label for="fechaCita">Fecha de la Cita</label>
+      <input type="text" id="fechaCita" name="fechaCita" readonly>
+
+
       <label for="tipo">Tipo de cita</label>
       <select id="tipo" name="tipo" required>
         <option value="">Seleccione</option>
@@ -138,6 +142,19 @@
   const tipoSelect = document.getElementById("tipo");
   const formCita = document.getElementById("formCita");
   const msgCita = document.getElementById("msgCita");
+  
+  function generarFechaAleatoria() {
+  const hoy = new Date();
+  const minDias = 1;
+  const maxDias = 20;
+  const diasAleatorios = Math.floor(Math.random() * (maxDias - minDias + 1)) + minDias;
+  hoy.setDate(hoy.getDate() + diasAleatorios);
+  const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+  return hoy.toLocaleDateString('es-ES', opciones);
+}
+const fechaCitaInput = document.getElementById("fechaCita");
+fechaCitaInput.value = generarFechaAleatoria();
+
 
   especialidadSelect.addEventListener("change", () => {
     const especialidad = especialidadSelect.value;
@@ -178,6 +195,7 @@
       medico: medicoSelect.value,
       horario: horarioInput.value,
       habitacion: habitacionInput.value,
+      fechaCita: fechaCitaInput.value,
       tipo: tipoSelect.value,
       fechaReserva: new Date().toLocaleString()
     };
