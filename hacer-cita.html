@@ -190,32 +190,32 @@ fechaCitaInput.value = generarFechaAleatoria();
 });
 
 
-  formCita.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
-    if (!usuario) {
-      alert("Debes iniciar sesión.");
-      return;
-    }
+  //formCita.addEventListener("submit", (e) => {
+   // e.preventDefault();
+    //const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
+    //if (!usuario) {
+      //alert("Debes iniciar sesión.");
+      //return;
+    //}
 
-    const cita = {
-      cedula: usuario.cedula,
-      nombre: usuario.nombre,
-      especialidad: especialidadSelect.value,
-      medico: medicoSelect.value,
-      horario: horarioInput.value,
-      habitacion: habitacionInput.value,
-      fechaCita: fechaCitaInput.value,
-      tipo: tipoSelect.value,
-      fechaReserva: new Date().toLocaleString()
-    };
+    //const cita = {
+      //cedula: usuario.cedula,
+      //nombre: usuario.nombre,
+      //especialidad: especialidadSelect.value,
+      //medico: medicoSelect.value,
+      //horario: horarioInput.value,
+      //habitacion: habitacionInput.value,
+      //fechaCita: fechaCitaInput.value,
+      //tipo: tipoSelect.value,
+      //fechaReserva: new Date().toLocaleString()
+    //};
 
-    const citas = JSON.parse(localStorage.getItem("citas") || "[]");
-    citas.push(cita);
-    localStorage.setItem("citas", JSON.stringify(citas));
+    //const citas = JSON.parse(localStorage.getItem("citas") || "[]");
+    //citas.push(cita);
+    //localStorage.setItem("citas", JSON.stringify(citas));
 
-    msgCita.textContent = "¡Cita agendada exitosamente!";
-    formCita.reset();
+    //msgCita.textContent = "¡Cita agendada exitosamente!";
+    //formCita.reset();
 
 
 //para registrar las citas//
