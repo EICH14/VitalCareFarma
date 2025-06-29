@@ -76,6 +76,7 @@
               <p><strong>Habitación:</strong> ${cita.habitacion}</p>
               <p><strong>Tipo:</strong> ${cita.tipo}</p>
               <p><strong>Reservado el:</strong> ${cita.fechaReserva}</p>
+              <p><strong>Fecha de la Cita:</strong> ${cita.fechaCita}</p>
               <button onclick="descargarCitaPDF(${index})" class="btn descargar">Descargar PDF</button>
             </article>
           `;
@@ -104,6 +105,7 @@
       doc.text(`Horario: ${cita.horario}`, 20, 80);
       doc.text(`Habitación: ${cita.habitacion}`, 20, 90);
       doc.text(`Tipo de cita: ${cita.tipo}`, 20, 100);
+      doc.text(`Fecha de la Cita: ${cita.fechaCita}`, 20, 105);
       doc.text(`Reservado el: ${cita.fechaReserva}`, 20, 110);
 
       doc.save(`cita-${cita.cedula}-${index + 1}.pdf`);
