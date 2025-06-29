@@ -170,15 +170,25 @@ fechaCitaInput.value = generarFechaAleatoria();
   });
 
   medicoSelect.addEventListener("change", () => {
-    const selected = medicoSelect.value;
-    if (horariosHabitaciones[selected]) {
-      horarioInput.value = horariosHabitaciones[selected].horario;
-      habitacionInput.value = horariosHabitaciones[selected].habitacion;
-    } else {
-      horarioInput.value = "";
-      habitacionInput.value = "";
-    }
-  });
+  const selected = medicoSelect.value;
+  if (horariosHabitaciones[selected]) {
+    horarioInput.value = horariosHabitaciones[selected].horario;
+    habitacionInput.value = horariosHabitaciones[selected].habitacion;
+
+    // Generar fecha aleatoria entre mañana y 20 días
+    const hoy = new Date();
+    const diasAleatorios = Math.floor(Math.random() * 20) + 1;
+    hoy.setDate(hoy.getDate() + diasAleatorios);
+    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+    fechaCitaInput.value = hoy.toLocaleDateString('es-ES', opciones);
+
+  } else {
+    horarioInput.value = "";
+    habitacionInput.value = "";
+    fechaCitaInput.value = "";
+  }
+});
+
 
   formCita.addEventListener("submit", (e) => {
     e.preventDefault();
