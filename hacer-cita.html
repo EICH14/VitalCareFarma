@@ -153,7 +153,7 @@
   return hoy.toLocaleDateString('es-ES', opciones);
 }
 const fechaCitaInput = document.getElementById("fechaCita");
-
+fechaCitaInput.value = generarFechaAleatoria();
 
 
   especialidadSelect.addEventListener("change", () => {
@@ -216,6 +216,51 @@ const fechaCitaInput = document.getElementById("fechaCita");
 
     msgCita.textContent = "¡Cita agendada exitosamente!";
     formCita.reset();
+
+
+//para registrar las citas//
+    formCita.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
+  if (!usuario) {
+    alert("Debes iniciar sesión.");
+    return;
+  }
+
+  const cita = {
+    cedula: usuario.cedula,
+    nombre: usuario.nombre,
+    especialidad: especialidadSelect.value,
+    medico: medicoSelect.value,
+    horario: horarioInput.value,
+    habitacion: habitacionInput.value,
+    fechaCita: fechaCitaInput.value,
+    tipo: tipoSelect.value,
+    fechaReserva: new Date().toLocaleString()
+  };
+
+  const citas = JSON.parse(localStorage.getItem("citas") || "[]");
+  citas.push(cita);
+  localStorage.setItem("citas", JSON.stringify(citas));
+
+  msgCita.textContent = `¡Cita agendada exitosamente! Fecha: ${cita.fechaCita}`;
+
+  formCita.reset(); // Limpia el formulario
+
+  // Regenera fecha para nueva cita
+  fechaCitaInput.value = generarFechaAleatoria();
+
+  // Limpia select de médico y campos dependientes
+  medicoSelect.innerHTML = '<option value="">Seleccione</option>';
+  horarioInput.value = "";
+  habitacionInput.value = "";
+});
+
+
+    
+
+
+    
     medicoSelect.innerHTML = '<option value="">Seleccione</option>';
     horarioInput.value = "";
     habitacionInput.value = "";
