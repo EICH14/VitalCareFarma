@@ -76,6 +76,7 @@
     </form>
   </main>
 </div>
+  
 <script>
   const medicosPorEspecialidad = {
     "Dermatología": ["Dra. Gómez", "Dr. Ruiz", "Dra. Pérez", "Dr. Mendoza", "Dr. Ortega"],
@@ -90,49 +91,78 @@
   };
 
   const horariosHabitaciones = {
-    "Dra. Gómez": { horario: "AM", habitacion: "101" },
-    "Dr. Ruiz": { horario: "PM", habitacion: "102" },
-    "Dra. Pérez": { horario: "AM", habitacion: "103" },
-    "Dr. Mendoza": { horario: "PM", habitacion: "104" },
-    "Dr. Ortega": { horario: "AM", habitacion: "105" },
-    "Lic. Mora": { horario: "AM", habitacion: "201" },
-    "Lic. Villalba": { horario: "PM", habitacion: "202" },
-    "Lic. Castillo": { horario: "AM", habitacion: "203" },
-    "Lic. Delgado": { horario: "PM", habitacion: "204" },
-    "Lic. Ramos": { horario: "AM", habitacion: "205" },
-    "Dra. Herrera": { horario: "PM", habitacion: "301" },
-    "Dr. Velásquez": { horario: "AM", habitacion: "302" },
-    "Dra. Ríos": { horario: "PM", habitacion: "303" },
-    "Dra. Cáceres": { horario: "AM", habitacion: "304" },
-    "Dr. López": { horario: "PM", habitacion: "305" },
-    "Dr. Díaz": { horario: "AM", habitacion: "401" },
-    "Dra. Mejía": { horario: "PM", habitacion: "402" },
-    "Dr. Pérez": { horario: "AM", habitacion: "403" },
-    "Dra. Silva": { horario: "PM", habitacion: "404" },
-    "Dr. Torres": { horario: "AM", habitacion: "405" },
-    "Dr. Fernández": { horario: "PM", habitacion: "501" },
-    "Dra. Robles": { horario: "AM", habitacion: "502" },
-    "Dr. Navarro": { horario: "PM", habitacion: "503" },
-    "Dra. Peña": { horario: "AM", habitacion: "504" },
-    "Dr. Cedeño": { horario: "PM", habitacion: "505" },
-    "Lic. Ávila": { horario: "AM", habitacion: "601" },
-    "Lic. Moreno": { horario: "PM", habitacion: "602" },
-    "Lic. Guzmán": { horario: "AM", habitacion: "603" },
-    "Lic. Vargas": { horario: "PM", habitacion: "604" },
-    "Lic. Campos": { horario: "AM", habitacion: "605" },
-    "Lic. Quiroz": { horario: "PM", habitacion: "701" },
-    "Lic. Medina": { horario: "AM", habitacion: "702" },
-    "Lic. Rivas": { horario: "PM", habitacion: "703" },
-    "Dra. Luna": { horario: "AM", habitacion: "801" },
-    "Dr. Herrera": { horario: "PM", habitacion: "802" },
-    "Dra. Torres": { horario: "AM", habitacion: "803" },
-    "Dra. Paredes": { horario: "PM", habitacion: "804" },
-    "Dr. Escobar": { horario: "AM", habitacion: "901" },
-    "Dra. Navarro": { horario: "PM", habitacion: "902" },
-    "Dr. Peña": { horario: "AM", habitacion: "903" },
-    "Dra. Suárez": { horario: "PM", habitacion: "904" },
-    "Dr. Vega": { horario: "AM", habitacion: "905" }
+    "Dra. Gómez": { horario: "AM - 08:00", habitacion: "101" },
+    "Dr. Ruiz": { horario: "PM - 14:00", habitacion: "102" },
+    "Dra. Pérez": { horario: "AM - 09:00", habitacion: "103" },
+    "Dr. Mendoza": { horario: "PM - 15:00", habitacion: "104" },
+    "Dr. Ortega": { horario: "AM - 10:00", habitacion: "105" },
+    "Lic. Mora": { horario: "AM - 08:30", habitacion: "201" },
+    "Lic. Villalba": { horario: "PM - 13:30", habitacion: "202" },
+    "Lic. Castillo": { horario: "AM - 09:15", habitacion: "203" },
+    "Lic. Delgado": { horario: "PM - 14:45", habitacion: "204" },
+    "Lic. Ramos": { horario: "AM - 10:30", habitacion: "205" },
+    "Dra. Herrera": { horario: "PM - 15:30", habitacion: "301" },
+    "Dr. Velásquez": { horario: "AM - 08:45", habitacion: "302" },
+    "Dra. Ríos": { horario: "PM - 14:15", habitacion: "303" },
+    "Dra. Cáceres": { horario: "AM - 09:30", habitacion: "304" },
+    "Dr. López": { horario: "PM - 13:45", habitacion: "305" },
+    "Dr. Díaz": { horario: "AM - 07:45", habitacion: "401" },
+    "Dra. Mejía": { horario: "PM - 13:00", habitacion: "402" },
+    "Dr. Pérez": { horario: "AM - 08:15", habitacion: "403" },
+    "Dra. Silva": { horario: "PM - 14:30", habitacion: "404" },
+    "Dr. Torres": { horario: "AM - 10:00", habitacion: "405" },
+    "Dr. Fernández": { horario: "PM - 16:00", habitacion: "501" },
+    "Dra. Robles": { horario: "AM - 07:30", habitacion: "502" },
+    "Dr. Navarro": { horario: "PM - 15:15", habitacion: "503" },
+    "Dra. Peña": { horario: "AM - 09:45", habitacion: "504" },
+    "Dr. Cedeño": { horario: "PM - 13:15", habitacion: "505" },
+    "Lic. Ávila": { horario: "AM - 08:10", habitacion: "601" },
+    "Lic. Moreno": { horario: "PM - 14:50", habitacion: "602" },
+    "Lic. Guzmán": { horario: "AM - 09:40", habitacion: "603" },
+    "Lic. Vargas": { horario: "PM - 15:35", habitacion: "604" },
+    "Lic. Campos": { horario: "AM - 10:20", habitacion: "605" },
+    "Lic. Quiroz": { horario: "PM - 16:10", habitacion: "701" },
+    "Lic. Medina": { horario: "AM - 08:55", habitacion: "702" },
+    "Lic. Rivas": { horario: "PM - 13:25", habitacion: "703" },
+    "Dra. Luna": { horario: "AM - 09:05", habitacion: "801" },
+    "Dr. Herrera": { horario: "PM - 14:35", habitacion: "802" },
+    "Dra. Torres": { horario: "AM - 07:50", habitacion: "803" },
+    "Dra. Paredes": { horario: "PM - 15:05", habitacion: "804" },
+    "Dr. Escobar": { horario: "AM - 10:10", habitacion: "901" },
+    "Dra. Navarro": { horario: "PM - 16:25", habitacion: "902" },
+    "Dr. Peña": { horario: "AM - 09:50", habitacion: "903" },
+    "Dra. Suárez": { horario: "PM - 13:55", habitacion: "904" },
+    "Dr. Vega": { horario: "AM - 08:05", habitacion: "905" }
   };
+
+  const especialidadSelect = document.getElementById("especialidad");
+  const medicoSelect = document.getElementById("medico");
+  const horarioInput = document.getElementById("horario");
+  const habitacionInput = document.getElementById("habitacion");
+
+  especialidadSelect.addEventListener("change", () => {
+    const especialidad = especialidadSelect.value;
+    medicoSelect.innerHTML = '<option value="">Seleccione</option>';
+    if (medicosPorEspecialidad[especialidad]) {
+      medicosPorEspecialidad[especialidad].forEach(medico => {
+        const opt = document.createElement("option");
+        opt.value = medico;
+        opt.textContent = medico;
+        medicoSelect.appendChild(opt);
+      });
+    }
+  });
+
+  medicoSelect.addEventListener("change", () => {
+    const selected = medicoSelect.value;
+    if (horariosHabitaciones[selected]) {
+      horarioInput.value = horariosHabitaciones[selected].horario;
+      habitacionInput.value = horariosHabitaciones[selected].habitacion;
+    } else {
+      horarioInput.value = "";
+      habitacionInput.value = "";
+    }
+  });
 </script>
 
 <footer id="site-footer">
