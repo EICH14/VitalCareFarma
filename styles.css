@@ -1006,6 +1006,38 @@ body.home nav.menu a:hover {
 
 
 
+
+
+
+@media (max-width: 600px) {
+  .vc-carousel {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .vc-carousel-text {
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .vc-carousel-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .vc-prev {
+    left: 20%;
+  }
+
+  .vc-next {
+    right: 20%;
+  }
+}
+
+
+
 /*CARRUSEEEL
 Carrusel Vital Care 
 .vc-carousel {
