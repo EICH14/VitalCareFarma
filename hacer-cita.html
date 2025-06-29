@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="pagina para hacer citas medicas en VitalCareFarma">
   <title>Hacer una Cita</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="hacer-cita">
-
 <header id="site-header">
   <div class="header-content">
     <div class="logo-area">
       <img src="Vital.ico" alt="Logo Vital Care" class="logo">
-      <a href="home.html" class="logo-link"><h1>Vital Care</h1></a>
+      <a href="home.html" class="logo-link">
+        <h1>Vital Care</h1>
+      </a>
       <br>
       <div class="hamburger" id="hamburger">&#9776; Menú</div>
       <div id="menu">
@@ -28,24 +29,28 @@
         });
       </script>
     </div>
-
     <div class="contact-info">
       <p><strong>Tel:</strong> <a href="tel:+5072667907">2667907</a></p>
       <p><strong>Correo:</strong> <a href="mailto:vitalcare3@gmail.com">vitalcare3@gmail.com</a></p>
     </div>
   </div>
 </header>
-
 <div class="container">
   <main>
     <h2>Reservar Cita</h2>
-
     <form id="formCita" aria-label="Formulario para reservar cita médica">
       <label for="especialidad">Especialidad</label>
       <select id="especialidad" name="especialidad" required>
         <option value="">Seleccione</option>
         <option value="Dermatología">Dermatología</option>
+        <option value="Estimulación Temprana">Estimulación Temprana</option>
+        <option value="Gineo-Obstetricia">Gineo-Obstetricia</option>
         <option value="Medicina General">Medicina General</option>
+        <option value="Medicina Interna">Medicina Interna</option>
+        <option value="Nutrición">Nutrición</option>
+        <option value="Optometría">Optometría</option>
+        <option value="Pediatría">Pediatría</option>
+        <option value="Psiquiatría">Psiquiatría</option>
       </select>
 
       <label for="medico">Médico</label>
@@ -54,11 +59,7 @@
       </select>
 
       <label for="horario">Horario</label>
-      <select id="horario" name="horario" required>
-        <option value="">Seleccione</option>
-        <option value="AM">AM</option>
-        <option value="PM">PM</option>
-      </select>
+      <input type="text" id="horario" name="horario" readonly>
 
       <label for="habitacion">Habitación</label>
       <input type="text" id="habitacion" name="habitacion" readonly>
@@ -75,79 +76,63 @@
     </form>
   </main>
 </div>
-
 <script>
   const medicosPorEspecialidad = {
-    "Dermatología": ["Dra. Gómez", "Dr. Ruiz"],
-    "Medicina General": ["Dr. Díaz", "Dra. Mejía"]
+    "Dermatología": ["Dra. Gómez", "Dr. Ruiz", "Dra. Pérez", "Dr. Mendoza", "Dr. Ortega"],
+    "Estimulación Temprana": ["Lic. Mora", "Lic. Villalba", "Lic. Castillo", "Lic. Delgado", "Lic. Ramos"],
+    "Gineo-Obstetricia": ["Dra. Herrera", "Dr. Velásquez", "Dra. Ríos", "Dra. Cáceres", "Dr. López"],
+    "Medicina General": ["Dr. Díaz", "Dra. Mejía", "Dr. Pérez", "Dra. Silva", "Dr. Torres"],
+    "Medicina Interna": ["Dr. Fernández", "Dra. Robles", "Dr. Navarro", "Dra. Peña", "Dr. Cedeño"],
+    "Nutrición": ["Lic. Ávila", "Lic. Moreno", "Lic. Guzmán", "Lic. Vargas", "Lic. Campos"],
+    "Optometría": ["Lic. Castillo", "Lic. Quiroz", "Lic. Medina", "Lic. Rivas", "Lic. Torres"],
+    "Pediatría": ["Dra. Luna", "Dr. Herrera", "Dra. Torres", "Dr. Díaz", "Dra. Paredes"],
+    "Psiquiatría": ["Dr. Escobar", "Dra. Navarro", "Dr. Peña", "Dra. Suárez", "Dr. Vega"]
   };
 
-  const datosMedico = {
+  const horariosHabitaciones = {
     "Dra. Gómez": { horario: "AM", habitacion: "101" },
     "Dr. Ruiz": { horario: "PM", habitacion: "102" },
-    "Dr. Díaz": { horario: "AM", habitacion: "201" },
-    "Dra. Mejía": { horario: "PM", habitacion: "202" }
+    "Dra. Pérez": { horario: "AM", habitacion: "103" },
+    "Dr. Mendoza": { horario: "PM", habitacion: "104" },
+    "Dr. Ortega": { horario: "AM", habitacion: "105" },
+    "Lic. Mora": { horario: "AM", habitacion: "201" },
+    "Lic. Villalba": { horario: "PM", habitacion: "202" },
+    "Lic. Castillo": { horario: "AM", habitacion: "203" },
+    "Lic. Delgado": { horario: "PM", habitacion: "204" },
+    "Lic. Ramos": { horario: "AM", habitacion: "205" },
+    "Dra. Herrera": { horario: "PM", habitacion: "301" },
+    "Dr. Velásquez": { horario: "AM", habitacion: "302" },
+    "Dra. Ríos": { horario: "PM", habitacion: "303" },
+    "Dra. Cáceres": { horario: "AM", habitacion: "304" },
+    "Dr. López": { horario: "PM", habitacion: "305" },
+    "Dr. Díaz": { horario: "AM", habitacion: "401" },
+    "Dra. Mejía": { horario: "PM", habitacion: "402" },
+    "Dr. Pérez": { horario: "AM", habitacion: "403" },
+    "Dra. Silva": { horario: "PM", habitacion: "404" },
+    "Dr. Torres": { horario: "AM", habitacion: "405" },
+    "Dr. Fernández": { horario: "PM", habitacion: "501" },
+    "Dra. Robles": { horario: "AM", habitacion: "502" },
+    "Dr. Navarro": { horario: "PM", habitacion: "503" },
+    "Dra. Peña": { horario: "AM", habitacion: "504" },
+    "Dr. Cedeño": { horario: "PM", habitacion: "505" },
+    "Lic. Ávila": { horario: "AM", habitacion: "601" },
+    "Lic. Moreno": { horario: "PM", habitacion: "602" },
+    "Lic. Guzmán": { horario: "AM", habitacion: "603" },
+    "Lic. Vargas": { horario: "PM", habitacion: "604" },
+    "Lic. Campos": { horario: "AM", habitacion: "605" },
+    "Lic. Quiroz": { horario: "PM", habitacion: "701" },
+    "Lic. Medina": { horario: "AM", habitacion: "702" },
+    "Lic. Rivas": { horario: "PM", habitacion: "703" },
+    "Dra. Luna": { horario: "AM", habitacion: "801" },
+    "Dr. Herrera": { horario: "PM", habitacion: "802" },
+    "Dra. Torres": { horario: "AM", habitacion: "803" },
+    "Dra. Paredes": { horario: "PM", habitacion: "804" },
+    "Dr. Escobar": { horario: "AM", habitacion: "901" },
+    "Dra. Navarro": { horario: "PM", habitacion: "902" },
+    "Dr. Peña": { horario: "AM", habitacion: "903" },
+    "Dra. Suárez": { horario: "PM", habitacion: "904" },
+    "Dr. Vega": { horario: "AM", habitacion: "905" }
   };
-
-  const especialidadSelect = document.getElementById("especialidad");
-  const medicoSelect = document.getElementById("medico");
-  const horarioSelect = document.getElementById("horario");
-  const habitacionInput = document.getElementById("habitacion");
-  const formCita = document.getElementById("formCita");
-  const msgCita = document.getElementById("msgCita");
-
-  especialidadSelect.addEventListener("change", () => {
-    const especialidad = especialidadSelect.value;
-    medicoSelect.innerHTML = '<option value="">Seleccione</option>';
-    if (especialidad && medicosPorEspecialidad[especialidad]) {
-      medicosPorEspecialidad[especialidad].forEach((med) => {
-        const opt = document.createElement("option");
-        opt.value = med;
-        opt.textContent = med;
-        medicoSelect.appendChild(opt);
-      });
-    }
-  });
-
-  medicoSelect.addEventListener("change", () => {
-    const medico = medicoSelect.value;
-    if (datosMedico[medico]) {
-      horarioSelect.value = datosMedico[medico].horario;
-      habitacionInput.value = datosMedico[medico].habitacion;
-    } else {
-      horarioSelect.value = "";
-      habitacionInput.value = "";
-    }
-  });
-
-  formCita.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
-    if (!usuario) {
-      alert("Debes iniciar sesión.");
-      return;
-    }
-
-    const cita = {
-      cedula: usuario.cedula,
-      nombre: usuario.nombre,
-      especialidad: especialidadSelect.value,
-      medico: medicoSelect.value,
-      horario: horarioSelect.value,
-      habitacion: habitacionInput.value,
-      tipo: document.getElementById("tipo").value,
-      fechaReserva: new Date().toLocaleString()
-    };
-
-    const citas = JSON.parse(localStorage.getItem("citas") || "[]");
-    citas.push(cita);
-    localStorage.setItem("citas", JSON.stringify(citas));
-
-    msgCita.textContent = "¡Cita agendada exitosamente!";
-    formCita.reset();
-    medicoSelect.innerHTML = '<option value="">Seleccione</option>';
-    habitacionInput.value = "";
-  });
 </script>
 
 <footer id="site-footer">
