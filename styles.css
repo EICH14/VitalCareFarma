@@ -194,11 +194,27 @@ a:hover {
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA DE LOGIN ==== */
 body.login {
-  background: linear-gradient(to right, #00aeff, #9ce0ff);
+  background: linear-gradient(to right, #f5faff, #0373a7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #000000;
 }
+ 
+ body.login.logo-link h1 {
+  font-size: 1.8rem;
+  color: white;
+  margin: 0;
+}
 
+body.login.contact-info {
+   color: #ffffff;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+body.login.contact-info a {
+  color: #ffffff;
+  text-decoration: none;
+}
 body.login .container {
   max-width: 450px;
   margin: 50px auto;
@@ -268,7 +284,7 @@ body.login .msg {
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA DE REGISTRO ==== */
 body.registro {
-  background: linear-gradient(to right, #f5faff, #00e1ff);
+  background: linear-gradient(to right, #f5faff, #0373a7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #000000;
 }
@@ -337,15 +353,15 @@ body.registro button:hover {
 body.registro .msg {
   text-align: center;
   font-weight: bold;
-  color: #00796b;
+  color: #000000;
 }
 
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA RECUPERAR CONTRASEÑA ==== */
 body.recuperar {
-  background: linear-gradient(to bottom right, #0077ff, #d0f0f7);
+  background: linear-gradient(to bottom right, #f5faff, #0373a7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #003344;
+  color: #000000;
 }
 
 body.recuperar .container {
@@ -431,7 +447,7 @@ body.hacer-cita .container {
 
 body.hacer-cita h2 {
   text-align: center;
-  color: #00796b;
+  color: #000000;
   margin-bottom: 20px;
 }
 
@@ -486,6 +502,7 @@ body.ver-citas {
 
 /* ==== ESTILOS SOLO PARA LA PÁGINA HOME ==== */
 body.home {
+  /*imagen de fondo pagina home*/
     background: url("fondo-home.png") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -507,7 +524,7 @@ body.home .container {
 }
 
 body.home h2 {
-  color: #003366;
+  color: #000000;
   font-size: 1.8rem;
   text-align: center;
 }
@@ -566,9 +583,9 @@ body.home aside button:hover {
 /* ==== ESTILOS SOLO PARA LA PÁGINA DE VER CITAS ==== */
 body.ver-citas {
 
-  background: linear-gradient(to right, #e8f5e9, #e8ece8);
+  background: linear-gradient(to right, #f5faff, #0373a7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #54e654;
+  color: #000000;
 }
 
 body.ver-citas .container {
@@ -577,12 +594,13 @@ body.ver-citas .container {
   margin: 40px auto;
   padding: 25px;
   background: url("doctor1.svg");
+  /*imagen de fondo pagina ver citas*/
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 100px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff; /* O ajusta el color de texto según la imagen */
-  background-color: #6aa09de8;
+  background-color: #001652e8;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(20, 22, 20, 0.3);
   
@@ -623,7 +641,7 @@ body.ver-citas .btn {
   margin-top: 10px;
   padding: 10px 15px;
   background-color: #a3d397;
-  color: rgb(203, 228, 135);
+  color: rgb(228, 228, 228);
   text-decoration: none;
   border: none;
   border-radius: 8px;
@@ -633,7 +651,7 @@ body.ver-citas .btn {
 }
 
 body.ver-citas .btn:hover {
-  background-color: #2e7d32;
+  background-color: #0b1f46;
 }
 
 body.ver-citas .btn.volver {
@@ -725,11 +743,11 @@ body {
 #site-footer {
 
    
-  background: linear-gradient(50deg, #003366, hsl(202, 100%, 50%));
+  background: linear-gradient(50deg, #62798f, hsl(202, 100%, 8%));
    transition: background-color 2s, transform 2s;
 
  
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
@@ -776,8 +794,8 @@ a:hover {
 
 /* Gradiente y sombra en botones */
 button, .btn {
-  background: linear-gradient(135deg, var(--chocolate), #168d20);
-  box-shadow: 0 4px 8px rgb(0, 183, 255);
+  background: linear-gradient(135deg, var(--chocolate), #0c1158);
+  box-shadow: 0 4px 8px rgb(0, 36, 90);
   transition: all 0.3s ease;
 }
 button:hover, .btn:hover {
@@ -813,7 +831,7 @@ body.home nav.menu a:hover {
 }
 
 .contact-info a {
-  color: #0051ff;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -839,7 +857,7 @@ body.home nav.menu a:hover {
 
 .footer-contact a,
 .footer-links a {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
