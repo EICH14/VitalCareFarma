@@ -1018,7 +1018,7 @@ body.home nav.menu a:hover {
   }
 
   .vc-carousel-text {
-    width: auto;
+    width: 250%;
     font-size: 1rem;
     text-align: justify;
   }
