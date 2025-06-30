@@ -1017,13 +1017,13 @@ body.home nav.menu a:hover {
   }
 
   .vc-carousel-text {
-    width: 50%;
+    width: 100%;
     font-size: 1rem;
     text-align: justify;
   }
 
   .vc-carousel-image img {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
   }
 
