@@ -518,9 +518,9 @@ body.home .container {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  padding: 100px;
+  padding: 50px;
   max-width: 900px;
-  margin: 5px auto;
+  margin: 20px auto;
 }
 
 body.home h2 {
@@ -914,8 +914,8 @@ body.home nav.menu a:hover {
   max-width: 100%;
   height: auto;
   background-color: #fcfcfc;
-  padding: 20px;
-  gap: 20px;
+  padding: 30px;
+  gap: 30px;
   overflow: hidden;
   border-top: 2px solid #e7e5e5;
   border-bottom: 2px solid #e7dfdf;
@@ -924,8 +924,8 @@ body.home nav.menu a:hover {
 
 .vc-carousel-text {
   flex: 1;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 20px;
   border: 1px solid #ddd5d5;
   background-color: white;
   font-size: 1.05rem;
@@ -953,7 +953,7 @@ body.home nav.menu a:hover {
 }
 
 .vc-carousel-image img {
-  width: 100%;
+  width: 50%;
   max-width: 100%;
   height: auto;
   max-height: 350px;
@@ -964,12 +964,12 @@ body.home nav.menu a:hover {
 
 /* Botones del carrusel */
 .vc-carousel-btn {
-  position: absolute;
-  bottom: 15px;
+  position: center;
+  bottom: 7px;
   background-color: rgba(0,0,0,0.2);
   border: none;
   padding: 8px 12px;
-  font-size: 24px;
+  font-size: 10px;
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
@@ -981,15 +981,15 @@ body.home nav.menu a:hover {
 }
 
 .vc-prev {
-  left: 30%;
+  left: 10%;
 }
 
 .vc-next {
-  right: 30%;
+  right: 10%;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
+/* Responsivo 
+@media (max-width: 800px) {
   .vc-carousel {
     flex-direction: column;
     align-items: center;
@@ -1003,36 +1003,37 @@ body.home nav.menu a:hover {
     right: 20%;
   }
 }
+*/
 
 
 
 
 
-
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .vc-carousel {
     flex-direction: column;
-    padding: 30px;
-    gap: 30px;
+    padding: 10px;
+    gap: 10px;
   }
 
   .vc-carousel-text {
-    width: 100%;
+    width: auto;
     font-size: 1rem;
     text-align: justify;
   }
 
   .vc-carousel-image img {
+        width: 100%;
     max-width: 100%;
     height: auto;
   }
 
   .vc-prev {
-    left: 20%;
+    left: 10%;
   }
 
   .vc-next {
-    right: 20%;
+    right: 10%;
   }
 }
 
