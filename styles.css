@@ -1013,8 +1013,8 @@ body.home nav.menu a:hover {
 @media (max-width: 600px) {
   .vc-carousel {
     flex-direction: column;
-    padding: 100%;
-    gap: 100%;
+    padding: 5px;
+    gap: 5px;
   }
 
   .vc-carousel-text {
