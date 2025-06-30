@@ -1018,14 +1018,14 @@ body.home nav.menu a:hover {
   }
 
   .vc-carousel-text {
-    width: 200%;
+    width: 300%;
     font-size: 1rem;
     text-align: justify;
   }
 
   .vc-carousel-image img {
-    max-width: 200%;
-    height: auto;
+    max-width: 300%;
+    height: 100%;
   }
 
   .vc-prev {
