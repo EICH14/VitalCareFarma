@@ -520,7 +520,7 @@ body.home .container {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   padding: 100px;
   max-width: 900px;
-  margin: 50px auto;
+  margin: 5px auto;
 }
 
 body.home h2 {
@@ -914,18 +914,18 @@ body.home nav.menu a:hover {
   max-width: 100%;
   height: auto;
   background-color: #fcfcfc;
-  padding: 5px;
-  gap: 5px;
+  padding: 20px;
+  gap: 20px;
   overflow: hidden;
   border-top: 2px solid #e7e5e5;
   border-bottom: 2px solid #e7dfdf;
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 .vc-carousel-text {
   flex: 1;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
   border: 1px solid #ddd5d5;
   background-color: white;
   font-size: 1.05rem;
@@ -954,39 +954,7 @@ body.home nav.menu a:hover {
 
 .vc-carousel-image img {
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 350px;
-  object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Botones del carrusel */
-.vc-carousel-btn {
-  position: absolute;
-  bottom: 15px;
-  background-color: rgba(0,0,0,0.2);
-  border: none;
-  padding: 5px 5px;
-  font-size: 24px;
-  cursor: pointer;
-  border-radius: 20%;
-  z-index: 10;
-  transition: background-color 0.3s;
-}
-
-.vc-carousel-btn:hover {
-  background-color: rgba(0,0,0,0.4);
-}
-
-.vc-prev {
-  left: 20%;
-}
-
-.vc-next {
-  right: 20%;
-}
+  max-
 
 /* Responsivo 
 @media (max-width: 600px) {
