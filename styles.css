@@ -1009,21 +1009,22 @@ body.home nav.menu a:hover {
 
 
 
+
 @media (max-width: 600px) {
   .vc-carousel {
     flex-direction: column;
-    padding: 15px;
-    gap: 15px;
+    padding: 30px;
+    gap: 30px;
   }
 
   .vc-carousel-text {
-    width: 100%;
+    width: 50%;
     font-size: 1rem;
-    text-align: left;
+    text-align: justify;
   }
 
   .vc-carousel-image img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
   }
 
@@ -1035,7 +1036,6 @@ body.home nav.menu a:hover {
     right: 20%;
   }
 }
-
 
 
 /*CARRUSEEEL
