@@ -914,18 +914,18 @@ body.home nav.menu a:hover {
   max-width: 100%;
   height: auto;
   background-color: #fcfcfc;
-  padding: 20px;
-  gap: 20px;
+  padding: 5px;
+  gap: 5px;
   overflow: hidden;
   border-top: 2px solid #e7e5e5;
   border-bottom: 2px solid #e7dfdf;
-  border-radius: 12px;
+  border-radius: 5px;
 }
 
 .vc-carousel-text {
   flex: 1;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 5px;
   border: 1px solid #ddd5d5;
   background-color: white;
   font-size: 1.05rem;
@@ -958,7 +958,7 @@ body.home nav.menu a:hover {
   height: auto;
   max-height: 350px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -968,10 +968,10 @@ body.home nav.menu a:hover {
   bottom: 15px;
   background-color: rgba(0,0,0,0.2);
   border: none;
-  padding: 8px 12px;
+  padding: 5px 5px;
   font-size: 24px;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 20%;
   z-index: 10;
   transition: background-color 0.3s;
 }
@@ -981,14 +981,14 @@ body.home nav.menu a:hover {
 }
 
 .vc-prev {
-  left: 30%;
+  left: 20%;
 }
 
 .vc-next {
-  right: 30%;
+  right: 20%;
 }
 
-/* Responsivo */
+/* Responsivo 
 @media (max-width: 600px) {
   .vc-carousel {
     flex-direction: column;
@@ -1004,7 +1004,7 @@ body.home nav.menu a:hover {
   }
 }
 
-
+*/
 
 
 
